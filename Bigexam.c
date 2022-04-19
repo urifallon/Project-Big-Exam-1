@@ -5,14 +5,16 @@
 
 
 // Khai báo kiểu tự định nghĩa
-struct sinhvien {
+struct sinhvien 
+{
     long int msv; 
     float diemtcc, diemth, diemcsltc, diemtb;
     char hovaten[1000], gioitinh[1000], ngaysinh[1000], lop[1000], hocluc[1000];
 };
 
 // Nhap dữ liệu của sinh viên
-void nhapmang(struct sinhvien sv[], int n){ 
+void nhapmang(struct sinhvien sv[], int n)
+{ 
     printf(" ==NHAP THONG TIN SINH VIEN== \n"); 
     for (int i = 0; i < n; i++)
     {
@@ -28,10 +30,12 @@ void nhapmang(struct sinhvien sv[], int n){
 }
 
 // Danh sách sinh viên
-void list(struct sinhvien sv[], int n){ 
+void list(struct sinhvien sv[], int n)
+{ 
     
     // Tính trung bình điểm sinh viên
-    for(int i=0; i < n; i++){
+    for(int i=0; i < n; i++)
+    {
         sv[i].diemtb = (sv[i].diemtcc + sv[i].diemcsltc + sv[i].diemth)/3;
     }
 
@@ -42,7 +46,8 @@ void list(struct sinhvien sv[], int n){
     char yeu[20]  = "Yeu";
     
     // Xếp loại học lực
-    for(int i=0; i < n; i++){
+    for(int i=0; i < n; i++)
+    {
         if(sv[i].diemtb >= 8) strcpy(sv[i].hocluc,gioi);
         if(sv[i].diemtb >= 6.5 && sv[i].diemtb < 8) strcpy(sv[i].hocluc,kha);
         if(sv[i].diemtb >= 5 && sv[i].diemtb < 6.5) strcpy(sv[i].hocluc,tb);
@@ -56,21 +61,24 @@ void list(struct sinhvien sv[], int n){
     printf("---------------------------------------------------------------------------------------------------------------\n");
     
     // Xuất nội dung bảng
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
+    {
         printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
 
     printf("---------------------------------------------------------------------------------------------------------------\n");
-    
-
 }
 
 // Sắp xếp sinh vien theo điểm trung bình 
-void sapxep(struct sinhvien sv[], int n){
-    for(int i=0; i < n-1; i++){
-        for(int j = i + 1; j < n; j++){
-            if(sv[i].diemtb < sv[j].diemtb){
+void sapxep(struct sinhvien sv[], int n)
+{
+    for(int i=0; i < n-1; i++)
+    {
+        for(int j = i + 1; j < n; j++)
+        {
+            if(sv[i].diemtb < sv[j].diemtb)
+            {
                 struct sinhvien swap = sv[i];
                 sv[i] = sv[j];
                 sv[j] = swap;
@@ -85,7 +93,8 @@ void sapxep(struct sinhvien sv[], int n){
     printf("---------------------------------------------------------------------------------------------------------------\n");
     
     // Xuất nội dung bảng đã sắp xếp
-    for (int i = 0; i < n; i++){
+    for (int i = 0; i < n; i++)
+    {
         printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
@@ -95,14 +104,16 @@ void sapxep(struct sinhvien sv[], int n){
 }
 
 // Nhap file
-void nhapfile(struct sinhvien sv[], int n){
+void nhapfile(struct sinhvien sv[], int n)
+{
     printf("Noi dung da duoc nhap vao: a-test.txt\n");
 
     // Khai báo con trỏ file + Mở file
     FILE * fptxt = fopen("a-test.txt=","w"); 
     
     // Ghi file 
-    for(int i=0; i<n; i++){
+    for(int i=0; i<n; i++)
+    {
         fprintf(fptxt ,"| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
@@ -112,17 +123,20 @@ void nhapfile(struct sinhvien sv[], int n){
 }
 
 // xuat file
-void xuatfile(struct sinhvien sv[], int n){
+void xuatfile(struct sinhvien sv[], int n)
+{
 
     // Khai báo con trỏ file + Mở file
     FILE * fptxt = fopen("a-test.txt","r"); 
 
     // Xuất file
-    for(int i=0; i<n; i++){
+    for(int i=0; i<n; i++)
+    {
         fscanf(fptxt ," %15d %25s %11s %15s %17f %15s",
         &sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,&sv[i].diemtb,sv[i].hocluc);
     }
-    for(int i=0; i < n; i++){
+    for(int i=0; i < n; i++)
+    {
         printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
@@ -131,7 +145,8 @@ void xuatfile(struct sinhvien sv[], int n){
     fclose(fptxt);
 }
 
-int main(){
+int main()
+{
     int n; printf("Nhap so luong sinh vien : "); scanf("%d",&n); struct sinhvien sv[n];
     int chon; 
     
@@ -150,7 +165,8 @@ int main(){
 
         printf("\n"); printf("Moi ban chon: "); scanf("%d", &chon);
 
-        switch(chon) {
+        switch(chon) 
+        {
             case 1: nhapmang(sv,n); break;
             case 2: list(sv,n); break; 
             case 4: sapxep(sv,n); break;
