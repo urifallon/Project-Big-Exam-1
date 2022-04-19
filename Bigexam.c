@@ -77,7 +77,7 @@ void sapxep(struct sinhvien sv[], int n)
     {
         for(int j = i + 1; j < n; j++)
         {
-            if(sv[i].diemtb < sv[j].diemtb)
+            if(sv[i].diemtb > sv[j].diemtb)
             {
                 struct sinhvien swap = sv[i];
                 sv[i] = sv[j];
@@ -109,7 +109,7 @@ void nhapfile(struct sinhvien sv[], int n)
     printf("Noi dung da duoc nhap vao: a-test.txt\n");
 
     // Khai báo con trỏ file + Mở file
-    FILE * fptxt = fopen("a-test.txt=","w"); 
+    FILE * fptxt = fopen("a-test.txt=","w+"); 
     
     // Ghi file 
     for(int i=0; i<n; i++)
@@ -127,7 +127,7 @@ void xuatfile(struct sinhvien sv[], int n)
 {
 
     // Khai báo con trỏ file + Mở file
-    FILE * fptxt = fopen("a-test.txt","r"); 
+    FILE * fptxt = fopen("a-test.txt","w+"); 
 
     // Xuất file
     for(int i=0; i<n; i++)
