@@ -16,13 +16,13 @@ void nhapmang(struct sinhvien sv[], int n){
     printf(" ==NHAP THONG TIN SINH VIEN== \n"); 
     for (int i = 0; i < n; i++)
     {
-        printf("\nMa Sinh Vien: ");   scanf("%d",&sv[i].msv);
-        printf("Ho Ten: ");           fflush(stdin); gets(sv[i].hovaten);
-        printf("Gioi Tinh: ");        fflush(stdin); gets(sv[i].gioitinh);
-        printf("Ngay Sinh: ");        fflush(stdin); gets(sv[i].ngaysinh);
-        printf("Lop: ");              fflush(stdin); gets(sv[i].lop);
-        printf("Diem toan cao cap: ");scanf("%f",&sv[i].diemtcc);
-        printf("Diem triet: ");       scanf("%f",&sv[i].diemth);
+        printf("\nMa Sinh Vien: "); scanf("%ld",&sv[i].msv);
+        printf("Ho Ten: "); fflush(stdin); gets(sv[i].hovaten);
+        printf("Gioi Tinh: "); fflush(stdin); gets(sv[i].gioitinh);
+        printf("Ngay Sinh: "); fflush(stdin); gets(sv[i].ngaysinh);
+        printf("Lop: "); fflush(stdin); gets(sv[i].lop);
+        printf("Diem toan cao cap: "); scanf("%f",&sv[i].diemtcc);
+        printf("Diem triet: "); scanf("%f",&sv[i].diemth);
         printf("Diem lap trinh C: "); scanf("%f",&sv[i].diemcsltc);
     }
 }
@@ -43,10 +43,10 @@ void list(struct sinhvien sv[], int n){
     
     // Xếp loại học lực
     for(int i=0; i < n; i++){
-        if(sv[i].diemtb >= 8)                       strcpy(sv[i].hocluc,gioi);
+        if(sv[i].diemtb >= 8) strcpy(sv[i].hocluc,gioi);
         if(sv[i].diemtb >= 6.5 && sv[i].diemtb < 8) strcpy(sv[i].hocluc,kha);
         if(sv[i].diemtb >= 5 && sv[i].diemtb < 6.5) strcpy(sv[i].hocluc,tb);
-        if(sv[i].diemtb <5)                         strcpy(sv[i].hocluc,yeu);
+        if(sv[i].diemtb <5) strcpy(sv[i].hocluc,yeu);
     }
     
     // Xuất tiêu đề bảng
@@ -66,7 +66,7 @@ void list(struct sinhvien sv[], int n){
 
 }
 
-// Sắp xếp sinh vien theo điểm trung bình -------------- phần này chưa làm đc
+// Sắp xếp sinh vien theo điểm trung bình 
 void sapxep(struct sinhvien sv[], int n){
     for(int i=0; i < n-1; i++){
         for(int j = i + 1; j < n; j++){
