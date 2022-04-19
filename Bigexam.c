@@ -1,5 +1,4 @@
 //=========================== Nguyen Hoang Duong / 20212358 / DCCNTT12.10.8 ===========================
-// hello
 
 #include <stdio.h>
 #include <string.h>
@@ -58,7 +57,7 @@ void list(struct sinhvien sv[], int n){
     
     // Xuất nội dung bảng
     for (int i = 0; i < n; i++){
-        printf("| %-15d| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
+        printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
 
@@ -87,7 +86,7 @@ void sapxep(struct sinhvien sv[], int n){
     
     // Xuất nội dung bảng đã sắp xếp
     for (int i = 0; i < n; i++){
-        printf("| %-15d| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
+        printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
 
@@ -104,7 +103,7 @@ void nhapfile(struct sinhvien sv[], int n){
     
     // Ghi file 
     for(int i=0; i<n; i++){
-        fprintf(fptxt ,"| %-15d| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
+        fprintf(fptxt ,"| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
  
@@ -124,7 +123,7 @@ void xuatfile(struct sinhvien sv[], int n){
         &sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,&sv[i].diemtb,sv[i].hocluc);
     }
     for(int i=0; i < n; i++){
-        printf("| %-15d| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
+        printf("| %-15ld| %-25s| %-11s| %-15s| %-17.2f| %-15s|\n",
         sv[i].msv,sv[i].hovaten,sv[i].gioitinh,sv[i].ngaysinh,sv[i].diemtb,sv[i].hocluc);
     }
 
